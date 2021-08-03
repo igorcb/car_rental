@@ -7,6 +7,7 @@ RSpec.describe Car, type: :model do
   it { is_expected.to validate_presence_of(:price) }
   it { is_expected.to validate_numericality_of(:price).is_greater_than(0) }
   it { is_expected.to validate_presence_of(:rented) }
+  it { is_expected.to have_many(:rents) }
 
   describe ".rented" do
     it "includes cars with rented flag" do

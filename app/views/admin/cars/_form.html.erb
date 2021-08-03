@@ -1,0 +1,60 @@
+<%= form_for [:admin, @car] do |f| %>
+  <% if car.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+    <ul>
+      <% car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category, class: 'label'  %>
+    <div class="control">
+      <div class="select">
+        <%= f.select(:category_id, Category.all.map { |c| [c.name, c.id]}, :prompt => 'Select') %>
+      </div>
+    </div>
+  </div>  
+
+  <div class="field">
+    <%= f.label :name, class: 'label'  %>
+    <div class="control">
+      <%= f.text_field :name, class: "input"  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, class: 'label'  %>
+    <div class="control">
+      <%= f.text_field :price, class: "input"  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%# <%= f.label :rented, class: 'label' %>
+    <div class="control">
+      <%= f.check_box :rented, {:class => "myclass", :style => "mystyle"}, "checked-value", "unchecked-value" %>
+      <label for="rented">Rented</label>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :url_image, class: 'label'  %>
+    <div class="control">
+      <%= f.text_field :url_image, class: "input"  %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.submit class: 'button is-primary' %>
+      <%= link_to 'Back', admin_cars_path, class: 'button' %>
+    </div>
+  </div>
+
+ <% end %>
+
+

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Rent</h3>
+
+<p>
+  <strong>Car</strong>
+  <%= @rent&.car&.name %> 
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rent.name %> 
+</p>
+
+<p>
+  <strong>Date Start:</strong>
+  <%= @rent.date_start %> 
+</p>
+
+<p>
+  <strong>Date End:</strong>
+  <%= @rent.date_end %> 
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@rent&.price, precision: 2) %> 
+</p>
+
+<%= link_to 'Edit', edit_admin_rent_path(@rent) %> |
+<%= link_to 'Back', admin_rents_path %>

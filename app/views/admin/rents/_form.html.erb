@@ -1,0 +1,50 @@
+<%= form_for(@rent) do |f| %>
+  <% if rent.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(rent.errors.count, "error") %> prohibited this rent from being saved:</h2>
+    <ul>
+      <% rent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :car, class: 'label'  %>
+    <div class="control">
+     <%= f.select(:car_id, Car.all.map { |c| [c.name, c.id]}, :prompt => 'Select') %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, class: 'label'  %>
+    <div class="control">
+      <%= f.text_field :name, class: "input"  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_start, class: 'label'  %>
+    <div class="control">
+      <%= f.text_field :date_start, class: "input"  %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_end, class: 'label'  %>
+    <div class="control">
+      <%= f.text_field :date_end, class: "input"  %>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.submit class: 'button is-primary' %>
+      <%= link_to 'Back', rents_path, class: 'button' %>
+    </div>
+  </div>
+
+ <% end %>
+
+

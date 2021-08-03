@@ -1,11 +1,11 @@
 <style>
   .car-image {
-    min-height: 280 px;
+    /* min-height: 280 px; */
   }
 </style>
 
 <main>
-    <section class="py-5 text-center container">
+    <%# <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Album example</h1>
@@ -16,7 +16,7 @@
         </p>
       </div>
     </div>
-  </section>
+  </section> %>
 
   <div class="album py-5 bg-light">
     <div class="container">
@@ -34,7 +34,8 @@
               <p class="card-text"><%= car&.name %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Reserve</button>
+                  <%# <button type="button" class="btn btn-sm btn-outline-secondary">Reserve</button> %>
+                  <%= link_to "Reserve", new_rent_path(car_id: car&.id), class: 'btn btn-sm btn-outline-secondary'  %>
                 </div>
                 <small class="text-muted"><%= number_to_currency(car.price, precision: 2) %></small>
               </div>
