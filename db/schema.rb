@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2021_07_29_184324) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "rents", force: :cascade do |t|
     t.bigint "car_id", null: false
     t.string "name"
