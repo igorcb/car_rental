@@ -63,7 +63,7 @@ RSpec.describe Admin::RentsController, type: :controller do
     it 'create a new rent' do
       post :create, params: { rent: params }
       expect(flash[:notice]).to eq('Rental was successfully created.')
-      expect(response).to redirect_to(assigns(:rent))
+      expect(response).to redirect_to(admin_rent_path(assigns(:rent)))
     end
 
     it 'not create a new rent' do
@@ -99,7 +99,7 @@ RSpec.describe Admin::RentsController, type: :controller do
       expect(rent.date_end).to eq(params[:date_end])
 
       expect(flash[:notice]).to eq('Rent update successfull.')
-      expect(response).to redirect_to(action: :show, id: rent.id)
+      expect(response).to redirect_to(admin_rent_path(assigns(:rent)))
     end
 
     it 'should not update post info' do

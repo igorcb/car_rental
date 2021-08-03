@@ -19,7 +19,7 @@ module Admin
 
       respond_to do |format|
         if @rent.save
-          format.html { redirect_to @rent, notice: 'Rental was successfully created.' }
+          format.html { redirect_to admin_rent_url(@rent), notice: 'Rental was successfully created.' }
         else
           format.html { render :new }
         end
@@ -29,7 +29,7 @@ module Admin
     def update
       if @rent.update(rent_params)
         flash[:notice] = 'Rent update successfull.'
-        redirect_to action: :show, id: @rent.id
+        redirect_to admin_rent_url(@rent)
       else
         render :edit
       end
