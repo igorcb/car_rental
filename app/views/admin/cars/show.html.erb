@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="content">
 <h3>Rent</h3>
 
 <p>
@@ -43,6 +44,10 @@
 </p>
 
 
+<%= link_to 'Edit', edit_admin_car_path(@car), class: "btn btn-outline-primary btn-sm" %> |
+<%= link_to 'Back', admin_cars_path, class: "btn btn-primary btn-sm" %>
 
-<%= link_to 'Edit', edit_admin_car_path(@car) %> |
-<%= link_to 'Back', admin_cars_path %>
+</div>
+
+
+

@@ -8,7 +8,7 @@
         <th scope="col">Name</th>
         <th scope="col">Date Start</th>
         <th scope="col">Date End</th>
-        <th colspan="3"></th>
+        <th colspan="3">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -18,11 +18,9 @@
         <td><%= rent&.car.name %></td>
         <td><%= rent.name %></td>
         <td><%= rent.date_start %></td>
-        <td><%= rent.date_end %></td>
-        <td><%= rent.date_end %></td>
         <td><%= number_to_currency(rent&.price, precision: 2) %> </td>
-        <td><%= link_to 'Show', admin_rent_path(rent) %></td>
-        <td><%= link_to 'Edit', edit_admin_rent_path(rent) %></td>
+        <td><%= link_to 'Show', admin_rent_path(rent), class: "btn btn-outline-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_admin_rent_path(rent), class: "btn btn-outline-primary btn-sm" %></td>
       </tr>
       <% end %>
     </tbody>

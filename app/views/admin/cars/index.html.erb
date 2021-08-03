@@ -1,5 +1,8 @@
 <div class="table-responsive table-striped caption-top">
-  <caption>List of cars</caption>
+  <div style="display: flex; justify-content: space-between">
+    <caption>List of cars</caption>
+    <%= link_to 'New Car', new_admin_car_path, class: "btn btn-outline-info btn-sm" %>
+  </div>
   <table class="table align-middle">
     <thead>
       <tr>
@@ -17,8 +20,8 @@
         <td><%= car.name %></td>
         <td><%= car.price %></td>
         <td><%= car.rented %></td>
-        <td><%= link_to 'Show', admin_car_path(car) %></td>
-        <td><%= link_to 'Edit', edit_admin_car_path(car) %></td>
+        <td><%= link_to 'Show', admin_car_path(car), class: "btn btn-outline-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_admin_car_path(car), class: "btn btn-outline-primary btn-sm" %></td>
       </tr>
       <% end %>
     </tbody>
