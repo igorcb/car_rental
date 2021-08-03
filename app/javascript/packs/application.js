@@ -12,6 +12,13 @@ import "channels"
 import "bootstrap"
 import "../src/application.css"
 
+document.addEventListener("turbolinks:load", function() {
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+      $('[data-toggle="popover"]').popover()
+  })
+})
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

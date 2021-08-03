@@ -2,15 +2,15 @@
 <html>
   <head>
     <title>Rent a car</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%#= stylesheet_link_tag 'application', media: 'all' %>
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
-
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%# <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> %>
 
     <style>
       .bd-placeholder-img {
