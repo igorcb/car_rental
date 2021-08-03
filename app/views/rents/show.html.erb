@@ -12,9 +12,11 @@
             <%# <button type="button" class="btn btn-sm btn-outline-secondary">Reserve</button> %>
             <%#= link_to "Reserve", new_rent_path(car_id: car&.id), class: 'btn btn-sm btn-outline-secondary'  %>
           </div>
-          <small class="text-muted"><%= number_to_currency(@rent&.car.price, precision: 2) %></small>
+          <small class="text-muted"><%= number_to_currency(@rent&.price, precision: 2) %></small>
         </div>
       </div>
     </div>
   </div>
+  <h4>Você alugou um <%= @rent&.car&.name %> no valor de <%= number_to_currency(@rent&.price, precision: 2) %></h4>
+  <h5>pelo o período de <%= @rent&.date_start %> á <%= @rent&.date_end %></h5>
 </div>
