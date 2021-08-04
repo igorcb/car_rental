@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Admin
   class RentsController < ApplicationController
-    before_action :set_rent, only: [:show, :update, :edit]
+    before_action :set_rent, only: %i[show update edit]
 
     def index
       @rents = Rent.all
@@ -37,12 +39,12 @@ module Admin
 
     private
 
-      def rent_params
-        params.require(:rent).permit(:car_id, :name, :date_start, :date_end)
-      end
-      
-      def set_rent
-        @rent = Rent.find(params[:id])
-      end
+    def rent_params
+      params.require(:rent).permit(:car_id, :name, :date_start, :date_end)
+    end
+
+    def set_rent
+      @rent = Rent.find(params[:id])
+    end
   end
 end

@@ -27,5 +27,5 @@
   <%= number_to_currency(@rent&.price, precision: 2) %> 
 </p>
 
-<%= link_to 'Edit', edit_admin_rent_path(@rent) %> |
-<%= link_to 'Back', admin_rents_path %>
+<%= link_to 'Edit', edit_admin_rent_path(@rent), class: "btn btn-outline-primary btn-sm" %> |
+<%= link_to 'Back', admin_rents_path, class: "btn btn-primary btn-sm"  %>

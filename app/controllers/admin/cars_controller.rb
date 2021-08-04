@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Admin
   class CarsController < ApplicationController
-    before_action :set_car, only: [:show, :update, :edit]
+    before_action :set_car, only: %i[show update edit]
 
     def index
       @cars = Car.all
@@ -36,12 +38,12 @@ module Admin
 
     private
 
-      def car_params
-        params.require(:car).permit(:category_id, :name, :price, :rented, :url_image)
-      end
-      
-      def set_car
-        @car = Car.find(params[:id])
-      end
+    def car_params
+      params.require(:car).permit(:category_id, :name, :price, :rented, :url_image)
+    end
+
+    def set_car
+      @car = Car.find(params[:id])
+    end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Admin::RentsController, type: :controller do
@@ -40,8 +42,8 @@ RSpec.describe Admin::RentsController, type: :controller do
       get :show, params: { id: rent.id }
       expect(assigns(:rent)).to eq(rent)
     end
-  end  
-  
+  end
+
   context 'GET #new' do
     it 'should success and render to new page' do
       get :new
@@ -51,13 +53,11 @@ RSpec.describe Admin::RentsController, type: :controller do
   end
 
   context 'POST #create' do
-    
     let!(:params) do
       { car_id: @car.id,
         name: Faker::Name.name,
         date_start: Date.current,
-        date_end: Date.current + 1.days,
-        }
+        date_end: Date.current + 1.days }
     end
 
     it 'create a new rent' do
@@ -71,7 +71,7 @@ RSpec.describe Admin::RentsController, type: :controller do
       post :create, params: { rent: params }
       expect(response).to render_template('new')
     end
-  end  
+  end
 
   context 'GET #edit' do
     let(:rent) { create(:rent) }
@@ -86,11 +86,11 @@ RSpec.describe Admin::RentsController, type: :controller do
     let!(:rent) { create(:rent) }
 
     it 'should update rent info' do
-      params = { 
-                 name: Faker::Name.name,
-                 date_start: Date.current + 4,
-                 date_end: Date.current + 8
-                 }
+      params = {
+        name: Faker::Name.name,
+        date_start: Date.current + 4,
+        date_end: Date.current + 8
+      }
 
       put :update, params: { id: rent.id, rent: params }
       rent.reload
@@ -109,9 +109,4 @@ RSpec.describe Admin::RentsController, type: :controller do
       expect(response).to render_template(:edit)
     end
   end
-
-
-
-
-
 end

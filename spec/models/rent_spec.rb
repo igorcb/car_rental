@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Rent, type: :model do
   let(:car) { build(:car) }
-  
+
   before do
     @rent = Rent.create(car: car, name: Faker::Name.name, date_start: Date.current, date_end: Date.current + 2.days)
   end

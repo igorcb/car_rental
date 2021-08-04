@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Admin::CarsController, type: :controller do
@@ -40,7 +42,7 @@ RSpec.describe Admin::CarsController, type: :controller do
       get :show, params: { id: car.id }
       expect(assigns(:car)).to eq(car)
     end
-  end  
+  end
 
   context 'GET #new' do
     it 'should success and render to new page' do
@@ -51,15 +53,14 @@ RSpec.describe Admin::CarsController, type: :controller do
   end
 
   context 'POST #create' do
-    
     let!(:params) do
-      { 
+      {
         category_id: @category.id,
         name: Faker::Name.name,
-        price: Faker::Commerce.price(range: 1.0..400.0) ,
+        price: Faker::Commerce.price(range: 1.0..400.0),
         rented: false,
-        url_image: Faker::Avatar.image(slug: "my-own-slug", size: "50x50", format: "jpg")
-        }
+        url_image: Faker::Avatar.image(slug: 'my-own-slug', size: '50x50', format: 'jpg')
+      }
     end
 
     it 'create a new car' do
@@ -73,7 +74,7 @@ RSpec.describe Admin::CarsController, type: :controller do
       post :create, params: { car: params }
       expect(response).to render_template('new')
     end
-  end  
+  end
 
   context 'GET #edit' do
     let(:car) { create(:car) }
@@ -88,10 +89,10 @@ RSpec.describe Admin::CarsController, type: :controller do
     let!(:car) { create(:car) }
 
     it 'should update car info' do
-      params = { 
-                 name: Faker::Name.name,
-                 rented: false
-                 }
+      params = {
+        name: Faker::Name.name,
+        rented: false
+      }
 
       put :update, params: { id: car.id, car: params }
       car.reload
@@ -109,8 +110,4 @@ RSpec.describe Admin::CarsController, type: :controller do
       expect(response).to render_template(:edit)
     end
   end
-
-
-
-
 end

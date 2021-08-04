@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RentsController < ApplicationController
   def new
     @rent = Rent.new
@@ -21,7 +23,8 @@ class RentsController < ApplicationController
   end
 
   private
-    def rent_params
-      params.require(:rent).permit(:car_id, :name, :date_start, :date_end)
-    end
+
+  def rent_params
+    params.require(:rent).permit(:car_id, :name, :date_start, :date_end)
+  end
 end
